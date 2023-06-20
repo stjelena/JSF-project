@@ -1,0 +1,9 @@
+util\SessionUtils.class
+com\mycompany\promocije2021\JakartaRestConfiguration.class
+util\DateUtil.class
+util\DB.class
+entities\Knjiga.class
+managedBeans\PisacManagedBean.class
+managedBeans\OrganizatorManagdedBean.class
+com\mycompany\promocije2021\resources\JakartaEE9Resource.class
+managedBeans\LoginManagedBean.class

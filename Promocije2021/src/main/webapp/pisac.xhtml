@@ -1,0 +1,39 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Pisac</title>
+        <h:outputStylesheet name="css/css.css"></h:outputStylesheet>
+    </h:head>
+    <h:body>
+        <h:form>
+            
+            <label>Izaberite knjigu koju zelite da promovisete</label>
+            <p>
+                <h:selectOneMenu value="#{pmb.naziv_knjige}">
+                    <f:selectItems value="#{pmb.knjige}" var="knjiga" itemLabel="#{knjiga}"
+                                   itemValue="#{knjiga}"></f:selectItems>
+                </h:selectOneMenu>
+            
+            <label>   </label>
+            <h:commandButton action="#{pmb.promote()}" value="Promovisi"></h:commandButton>
+            </p>
+             
+            <br></br>        
+           
+                <h2>Dodajte knjigu</h2>
+                <label for="naziv">Naziv knjige</label>
+                <h:inputText value="#{pmb.naziv}"></h:inputText>
+                
+                <label for="br_strana">Broj strana</label>
+                <h:inputText value="#{pmb.br_strana}">
+                    <f:validateLongRange minimum="100" maximum="350"></f:validateLongRange>
+                </h:inputText>
+                
+          
+                <h:commandButton action="#{pmb.add()}" value="Dodaj"></h:commandButton>
+        </h:form>
+    </h:body>
+</html>

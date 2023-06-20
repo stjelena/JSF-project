@@ -1,0 +1,38 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Organizator</title>
+        <h:outputStylesheet name="css/css.css"></h:outputStylesheet>
+    </h:head>
+    <h:body>
+        <h:form>
+            
+            <h2>Neobradjene knjige: </h2>
+            
+            <h:dataTable value="#{omb.knjige}" var="k">
+                <h:column>
+                    <f:facet name="header">Knjiga</f:facet>
+                    #{k.naziv}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Pisac</f:facet>
+                    #{k.ime_pisca}
+                </h:column>
+                <h:column>
+                    <f:facet name="header"></f:facet>
+                    #{k.prezime_pisca}
+                </h:column>
+                <h:column>
+                    <h:commandButton value="Odobri" action="#{omb.odobri(k)}"></h:commandButton>
+                </h:column>
+                <h:column>
+                    <h:commandButton value="Odbij" action="#{omb.odbij(k)}"></h:commandButton>
+                </h:column>
+            </h:dataTable>
+            
+        </h:form>
+    </h:body>
+</html>

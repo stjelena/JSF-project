@@ -1,0 +1,63 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Dobrodošli</title>
+        <h:outputStylesheet name="css/css.css"></h:outputStylesheet>
+    </h:head>
+    <h:body>
+        <h:form>
+            <h2>Prijavite se</h2>
+            
+            <p>
+                <label for="username">Korisnicko ime: </label>
+                <h:inputText value="#{lmb.username}" id="username"></h:inputText>
+            </p>
+            
+            <p>
+                <label for="password">Lozinka: </label>
+                <h:inputSecret value="#{lmb.password}" id="password"></h:inputSecret>
+            </p>
+            
+            <p>
+                <label for="group">Tip: </label>
+                <h:selectOneRadio value="#{lmb.group}">
+                    <f:selectItem itemValue="pisac" itemLabel="Pisac"></f:selectItem>
+                     <f:selectItem itemValue="organizator" itemLabel="Organizator"></f:selectItem>
+                </h:selectOneRadio>
+            </p>
+            
+            <p>
+                <h:commandButton action="#{lmb.login()}" value="Prijavi se"></h:commandButton>
+            </p>
+            
+            <p>
+                <h:outputText value="#{lmb.error}" class="error"></h:outputText>
+            </p>
+            
+            <br></br> <br></br>
+            
+            
+            <h2>Knjige: </h2>
+            
+            <h:dataTable value="#{lmb.knjige}" var="k">
+                <h:column class="#{(k.status eq 3) ? 'green' : ''}">
+                    <f:facet name="header">Knjiga</f:facet>
+                    #{k.naziv}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Pisac</f:facet>
+                    #{k.ime_pisca}
+                </h:column>
+                <h:column>
+                    <f:facet name="header"></f:facet>
+                    #{k.prezime_pisca}
+                </h:column>
+            </h:dataTable>
+            
+        </h:form>
+    </h:body>
+</html>
+
